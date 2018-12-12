@@ -12,27 +12,45 @@
         {% endif %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include opengraph.html %}
         <meta charset="utf-8">
 
         {% if site.css == 'inline' %}
         <style>
-            {% capture inline-styles %}
-            {% include style.scss %}
-            {% endcapture %}
-            {{ inline-styles | scssify }}
+         {% capture inline-styles %}
+         {% include style.scss %}
+         {% endcapture %}
+         {{ inline-styles | scssify }}
         </style>
         {% else %}
         <link href="/css/style.css" rel="stylesheet">
         {% endif %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68057-25"></script>
+        <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
 
+         gtag('config', 'UA-68057-25');
+        </script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+        <link rel="manifest" href="/icons/site.webmanifest">
+        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
     </head>
 
-    <body class="ma0 pa2 pa4-ns bg-white dark-gray sans-serif lh-copy">
+    <body class="ma0 pa2 pa4-ns bg-near-black white sans-serif lh-copy debug-grid w-100">
+        <div class="center">
+            <div class="flex flex-wrap w-100 items-center justify-between debug-grid-8-solid mb4">
+                <div class="w-40-l w-100"><h1 class="ma0-l f2 lh-title"><a href="/" class="near-white no-underline">{{ site.title }}</a></h1></div>
+                <div class="w-60-l w-100">
+                    <p class="f6 ma0 tr-l tl">I'm Manuel Aristarán, a <a href="https://jazzido.com">professional software developer</a> and amateur musician. Here's some of my stuff.</p>
+                </div>
 
-        <p class="clip"><a href="#content">Skip to content</a></p>
-
-        <div class="measure center">
-
-            <h1 class="ma0 f5 lh-title"><a href="/" class="dark-gray no-underline">{{ site.title }}</a></h1>
+            </div>
 
             <main id="content">

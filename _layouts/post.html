@@ -12,6 +12,28 @@
 
     {{ content}}
 
+    {% if page.static %}
+    <h3>Files</h3>
+    <ul class="post-files">
+        {% for file in site.static_files %}
+        {% if file.path contains page.static %}
+        <li><a href="{{ file.path }}"></a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <br>
+    {% for file in site.static_files %}
+    {% if file.path contains page.static and file.path contains ".pdf" %}
+    <embed src="{{file.path}}" type="application/pdf" width="100%" height="1000">
+    <br>
+    {% endif %}
+    {% endfor %}
+
+
+    {% endif %}
+
+       
+
 </article>
 
 {% include footer.html %}

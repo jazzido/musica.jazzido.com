@@ -13,17 +13,17 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Site title"
-description: "A site description"
+title: "musica.jazzido.com"
+description: "Manuel Aristarán's repository of musical things"
 lang: "en" # or fr, de, es etc.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://manuel.jazzido.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Include styles inline or link to css file?
 # This has to be set to css: inline for the theme to inline styles
 # Set it to anything else, or remove it, to link to /css/style.class
 
-css: inline
+css: link
 
 
 # Build settings
@@ -41,23 +41,24 @@ sass:
 # Use {% if page.is_post %} etc.
 
 defaults:
--
-    scope:
-        path: "/"      # empty string for all files
-    values:
-        is_home: true
--
-    scope:
-        path: ""
-        type: posts
-    values:
-        is_post: true
--
-    scope:
-        path: ""
-        type: pages
-    values:
-        is_page: true
+- scope:
+    path: "/"      # empty string for all files
+  values:
+    is_home: true
+- scope:
+    path: ""
+    type: posts
+  values:
+    is_post: true
+- scope:
+    path: ""
+    type: pages
+  values:
+    is_page: true
+- scope:
+    path: "static"
+  values:
+    static: true
 
 
 # Exclude from processing.

@@ -1,29 +1,107 @@
 @media screen, projection {
 
-// Define variables in _variables.scss
-// Then create classes that refer to them here
-// Then use these class names in your HTML
+    // Define variables in _variables.scss
+    // Then create classes that refer to them here
+    // Then use these class names in your HTML
 
-// Example: create an alternative sans-serif class
-// Define $c-sans-serif in _variables.scss
-// Then create a c-sans-serif class here
-// Like so:
-.c-sans-serif {
-    font-family: $c-sans-serif;
+    // Example: create an alternative sans-serif class
+    // Define $c-sans-serif in _variables.scss
+    // Then create a c-sans-serif class here
+    // Like so:
+    .c-sans-serif {
+        font-family: $c-sans-serif;
+    }
+
+
+    // Some empty media queries
+    // Use these if you want to make responsive custom classes
+
+    @media #{$breakpoint-not-small} {
+    }
+
+    @media #{$breakpoint-medium} {
+    }
+
+    @media #{$breakpoint-large} {
+        #posts-list tr td:first-child, #posts-list tr th:first-child {
+            display: table-cell !important;
+        }
+    }
+
+    a {
+        color: $white;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    #posts-list {
+
+        tr {
+            td:first-child, th:first-child {
+                display: none;
+                padding-left: $spacing-extra-small;
+            }
+        }
+
+        tbody {
+            tr:hover {
+                background-color: $light-gray;
+                cursor: pointer;
+                color: $near-black;
+
+                a {
+                    color: $near-black;
+                }
+            }
+
+            tr {
+                td:last-child {
+                    padding: 0;
+                    text-align: center;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .tag {
+        width: 15%;
+        min-width: 18px;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+
+
+        &.tag-video {
+            color: $light-red;
+            &::before {
+                content: "video";
+            }
+        }
+
+
+        &.tag-sheet {
+            color: $light-blue;
+            &::before {
+                content: "sheet";
+            }
+        }
+
+        &.tag-audio {
+            color: $light-green;
+            &::before {
+                content: "audio";
+            }
+        }
+    }
+
+    .post-files {
+        a[href$="mscz"]::before {
+            content: "𝄢 Musescore";
+        }
+        a[href$="pdf"]::before {
+            content: "📄 PDF";
+        }
+    }
 }
-
-
-// Some empty media queries
-// Use these if you want to make responsive custom classes
-
-@media #{$breakpoint-not-small} {
-}
-
-@media #{$breakpoint-medium} {
-}
-
-@media #{$breakpoint-large} {
-}
-
-
-} // End the enclosing screen/projection media query
